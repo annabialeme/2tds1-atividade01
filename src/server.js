@@ -1,17 +1,8 @@
-import express from "express";
-import { config } from "dotenv";
+import { Router } from "express"
+const routes = Router()
 
-config();
+routes.get("/", (req, res) => {
+    return res.status (200).send({ message: "Vaiii Sao Pauloooooo"})
+}) 
 
-const serverPort = process.env.PORT || 3000;
-
-const app = express();
-app.use(express.json());
-
-app.get("/", (req, res) => {
-return res.status(200).json({ message: "Hello, World!" });
-});
-
-app.listen(serverPort, () => {
-console.log(`⚡ Server started on http://localhost:${serverPort}`);
-});
+export default routes
